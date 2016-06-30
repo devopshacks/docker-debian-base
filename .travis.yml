@@ -1,0 +1,22 @@
+sudo: required
+
+services:
+  - docker
+
+language: ruby
+rvm:
+  - 2.0
+
+branches:
+  only:
+    - master
+
+install:
+  - make test-deps
+
+script:
+  - make build
+  - make test
+  - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+    make upload;
+    fi
