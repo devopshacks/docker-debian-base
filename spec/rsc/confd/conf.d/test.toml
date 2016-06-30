@@ -1,0 +1,6 @@
+[template]
+src = "test.tmpl"
+dest = "/tmp/confd-test"
+keys = [
+    "/sample",
+]
