@@ -2,6 +2,8 @@
 
 set -eo pipefail; [[ "$DOCKER_ENTRYPOINT_TRACE" ]] && set -x
 
+. /etc/profile
+
 if [[ "$(id -u)" -ne 0 ]]; then
     echo 'docker_entrypoint_main.sh requires root' >&2
     exit 1
