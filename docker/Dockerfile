@@ -40,5 +40,7 @@ RUN \
     && rm -rf /var/lib/apt/lists/* /tmp/*
 
 COPY docker_entrypoint.sh /docker_entrypoint.sh
+COPY motd /etc/motd
+COPY devopshacks-release /etc/devopshacks-release
 
 ENTRYPOINT ["/docker_entrypoint.sh"]
