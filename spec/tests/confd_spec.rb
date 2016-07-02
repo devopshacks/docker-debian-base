@@ -32,6 +32,10 @@ describe "Dockerfile" do
     its(:content) { should eq "foo\n" }
   end
 
+  describe file('/var/log/docker-init.log') do
+    its(:content) { should match "INFO Starting confd" }
+  end
+
   after(:all) do
     if !@container.nil?
       @container.delete(:force => true)

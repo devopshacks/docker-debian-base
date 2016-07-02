@@ -39,8 +39,8 @@ RUN \
     && apt-get purge -y --auto-remove ca-certificates curl \
     && rm -rf /var/lib/apt/lists/* /tmp/*
 
-COPY entrypoint_main.sh /docker_entrypoint_main.sh
-COPY motd /etc/motd
+COPY entrypoint.sh /usr/local/bin/docker-entrypoint
+COPY devopshacks-logo /etc/devopshacks-logo
 COPY devopshacks-release /etc/devopshacks-release
 
-ENTRYPOINT ["/docker_entrypoint_main.sh"]
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint"]

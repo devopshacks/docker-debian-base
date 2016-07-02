@@ -11,7 +11,7 @@ describe "Dockerfile" do
       :Cmd => 'bash',
       :HostConfig => {
         :Binds => [
-          Dir.pwd + '/spec/rsc/entrypoint.sh:/docker_entrypoint.sh'
+          Dir.pwd + '/spec/rsc/docker-init.sh:/usr/local/bin/docker-init'
         ]
       }
     )
@@ -19,8 +19,8 @@ describe "Dockerfile" do
     set :docker_container, @container.id
   end
 
-  describe file('/tmp/entrypoint-test') do
-    its(:content) { should eq "ok\n" }
+  describe file('/var/log/docker-init.log') do
+    its(:content) { should match "docker-init test" }
   end
 
   after(:all) do
