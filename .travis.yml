@@ -15,8 +15,10 @@ install:
   - make test-deps
 
 script:
+  - set -e
   - make build
   - make test
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
     make upload;
     fi
+  - set +e
