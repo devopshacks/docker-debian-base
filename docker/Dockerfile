@@ -1,7 +1,6 @@
 FROM debian:8
 
 ENV USER=app \
-    DOCKER_ENTRYPOINT_TRACE= \
     CONFD_VERSION=0.11.0 \
     CONFD_PREFIX=/ \
     CONFD_OPTIONS="-backend env" \
