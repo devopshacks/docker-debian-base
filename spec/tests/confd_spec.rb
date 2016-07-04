@@ -6,16 +6,16 @@ set :backend, :docker
 describe "Dockerfile" do
   before(:all) do
     @container = Docker::Container.create(
-      :Image => ENV['DOCKER_IMAGE_NAME'] + ':' + ENV['DOCKER_IMAGE_TAG'],
-      :Tty => true,
-      :Cmd => 'bash',
-      :Env => [
+      'Image' => ENV['DOCKER_IMAGE_NAME'] + ':' + ENV['DOCKER_IMAGE_TAG'],
+      'Tty' => true,
+      'Cmd' => 'bash',
+      'Env' => [
         'USER=root',
         'CONFD_PREFIX=/test',
         'TEST_SAMPLE_VALUE=foo'
       ],
-      :HostConfig => {
-        :Binds => [
+      'HostConfig' => {
+        'Binds' => [
           Dir.pwd + '/spec/rsc/confd:/etc/confd:ro'
         ]
       }
@@ -38,7 +38,7 @@ describe "Dockerfile" do
 
   after(:all) do
     if !@container.nil?
-      @container.delete(:force => true)
+      @container.delete('force' => true)
     end
   end
 end
