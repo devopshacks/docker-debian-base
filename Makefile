@@ -16,7 +16,7 @@ upload: docker-login
 	docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
 
 run-bash:
-	docker run -it --rm ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} bash -l
+	docker run -it --rm -e USER=root ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} bash -l
 
 docker-info:
 	@docker run -it --rm ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} docker-info

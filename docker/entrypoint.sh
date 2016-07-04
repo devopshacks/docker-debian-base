@@ -26,6 +26,11 @@ function init {
     [ ! -f /usr/local/bin/docker-init ] || docker-init || exit_code=$?
 }
 
+function install_dev_tools {
+    echo "Install dev tools"
+    install-dev-tools
+}
+
 case "$@" in
     docker-info)
         info
@@ -33,6 +38,7 @@ case "$@" in
         ;;
     *)
         init_wrapper
+        [ -z "${INSTALL_DEV_TOOLS}" ] || install_dev_tools
         exec gosu ${USER} "$@"
         ;;
 esac

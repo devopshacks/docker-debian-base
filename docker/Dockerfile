@@ -39,6 +39,7 @@ RUN \
     && rm -rf /var/lib/apt/lists/* /tmp/*
 
 COPY entrypoint.sh /usr/local/bin/docker-entrypoint
+COPY install-dev-tools.sh /usr/local/bin/install-dev-tools
 COPY devopshacks-logo /etc/devopshacks-logo
 COPY devopshacks-release /etc/devopshacks-release
 
