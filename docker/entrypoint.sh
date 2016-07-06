@@ -8,9 +8,9 @@ if [[ "$(id -u)" -ne 0 ]]; then
 fi
 
 function info {
-    cat /etc/devopshacks-logo
+    cat /etc/opsidian-logo
     echo
-    cat /etc/devopshacks-release
+    cat /etc/opsidian-release
 }
 
 function init_wrapper {
