@@ -34,8 +34,6 @@ RUN \
     && mkdir -p /etc/confd/{conf.d,templates} \
 
     && echo "Clean up" \
-    && apt-get clean \
-    && apt-get purge -y --auto-remove ca-certificates curl \
     && rm -rf /var/lib/apt/lists/* /tmp/*
 
 COPY entrypoint.sh /usr/local/bin/docker-entrypoint
