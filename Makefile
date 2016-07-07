@@ -23,6 +23,7 @@ docker-info:
 
 test:
 	@for suite in spec/tests/*_spec.rb; do \
+		[ -z "$$TEST_SUITE" ] || [ "$$TEST_SUITE" = "$$suite" ] || continue; \
 		echo $$suite; \
 		DOCKER_IMAGE_NAME=${DOCKER_IMAGE_NAME} DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG} bundle exec rspec $$suite; \
 	done; \
