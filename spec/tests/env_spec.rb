@@ -39,6 +39,14 @@ describe "Dockerfile" do
     it { should be_installed }
   end
 
+  describe package('curl') do
+    it { should be_installed }
+  end
+
+  describe package('ca-certificates') do
+    it { should be_installed }
+  end
+
   after(:all) do
     if !@container.nil?
       @container.delete('force' => true)
