@@ -22,9 +22,9 @@ function init_wrapper {
 }
 
 function init {
-    . /etc/profile || exit_code=$?
     confd -onetime -prefix ${CONFD_PREFIX} ${CONFD_OPTIONS} || exit_code=$?
     [ ! -f /usr/local/bin/docker-init ] || docker-init || exit_code=$?
+    . /etc/profile || exit_code=$?
 }
 
 function install_dev_tools {

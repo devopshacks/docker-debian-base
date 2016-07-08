@@ -21,9 +21,9 @@ The Docker entrypoint can be found in /usr/local/bin/docker-entrypoint.
 
 The entrypoint does the following steps:
  * checks if the entrypoint is running as root
- * loads /etc/profile which loads scripts from /etc/profile.d
  * runs confd to generate configuration files
  * runs a custom init script if it exists
+ * loads /etc/profile which loads scripts from /etc/profile.d
  * runs the Docker command with the *app* user
 
 ### Run the Docker command with a custom user
